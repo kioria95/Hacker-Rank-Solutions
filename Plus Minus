@@ -1,0 +1,41 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the plusMinus function below.
+def plusMinus(arr):
+    h = len(arr)
+    pos = neg = zero = 0
+    final_pos = final_neg = final_zero = 0
+
+    for i in range(h):
+        if arr[i] > 0:
+            pos += 1
+        elif arr[i] == 0:
+            zero += 1
+        else:
+            neg+=1
+
+    final_pos = float(pos / n)
+    final_zero = float(zero / n)
+    final_neg = float(neg / n)
+
+    pos_final =  round(final_pos, 6)
+    pos_neg =  round(final_neg, 6)
+    pos_zero =  round(final_zero, 6)
+
+    print (pos_final)
+    print (pos_neg)
+    print (pos_zero)
+   
+
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)
