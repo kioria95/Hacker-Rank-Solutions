@@ -1,0 +1,50 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def countApplesAndOranges(s, t, a, b, apples, oranges):
+    fin_apples = fin_oranges = 0
+    
+# Adding the values in the array to the apple distance(a)
+    for i in apples:
+        apple_count = i + a
+# Checking whether the value lies between the range of Sam's house as per specification       
+        if apple_count >= s and apple_count <= t:
+            fin_apples += 1
+
+    for i in oranges:
+        orange_count = i + b
+        if orange_count >= s and orange_count <= t:
+            fin_oranges += 1
+   
+    print(fin_apples)
+    print(fin_oranges)
+  
+if __name__ == '__main__':
+    st = input().split()
+
+    s = int(st[0])
+
+    t = int(st[1])
+
+    ab = input().split()
+
+    a = int(ab[0])
+
+    b = int(ab[1])
+
+    mn = input().split()
+
+    m = int(mn[0])
+
+    n = int(mn[1])
+
+    apples = list(map(int, input().rstrip().split()))
+
+    oranges = list(map(int, input().rstrip().split()))
+
+    countApplesAndOranges(s, t, a, b, apples, oranges)
