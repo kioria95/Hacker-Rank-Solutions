@@ -1,0 +1,37 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+def divisibleSumPairs(n, k, ar):
+    counter = s=  0
+# Loop for given number(n) to get each element in the array
+    for i in range(n-1):
+# Start at s which is at zero, up to end. S will increase after second loop is done. This is to avoid backtracking and get new pairs divisible by the given value(k)
+        for j in range(s,n-1):
+            sum_= ar[i] + ar[j+1]
+# If the sum is divisible by k, increase the counter
+            if sum_ % k == 0: 
+                 counter+=1                      
+        s+=1    
+    return counter
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nk = input().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = divisibleSumPairs(n, k, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
