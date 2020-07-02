@@ -1,0 +1,38 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def breakingRecords(scores):
+    least_counter = max_counter = 0
+# Store the first value of the scores in various arrays
+    max_store = least_store = scores[0]  
+    for i in scores:
+ # If the value in score is more than the previous max value, make max value equal to it and increase the count  
+        if i > max_store:
+            max_store = i
+            max_counter +=1
+
+    for j in scores:
+ # If the value in score is less than the previous min value, make min value equal to it and increase the count
+        if j < least_store:
+            least_store = j
+            least_counter +=1
+    return (max_counter, least_counter)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    scores = list(map(int, input().rstrip().split()))
+
+    result = breakingRecords(scores)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
